@@ -1,6 +1,5 @@
 /// REQUIRES ///
 const { Schema, model } = require('mongoose');
-const thought = require('./Thought');
 
 
 
@@ -8,10 +7,25 @@ const thought = require('./Thought');
 /// CREATE NEW SCHEMA ///
 
 const userSchema = new Schema({
-    username: { type: String, required: true, unique: true, trim: true },
-    email: { type: String, required: true, unique: true },
-    thoughts: [{ type: Schema.Types.ObjectId, ref: 'Thought' }],
-    friends: [{ type: Schema.Type.ObjectId, ref: 'User' }],
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    thoughts: [{
+        type: Schema.Types.ObjectId,
+        ref: 'thought'
+    }],
+    friends: [{
+        type: Schema.Type.ObjectId,
+        ref: 'user'
+    }],
 },
 {
     toJSON: {
@@ -22,7 +36,7 @@ const userSchema = new Schema({
 );
 
 // create virtual property that gets number of friends user has
-userSchema.virtual('getFriends').get(function() {
+userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
 
@@ -30,10 +44,9 @@ userSchema.virtual('getFriends').get(function() {
 
 
 
-/// CREATE A MODEL ///
+/// CREATE MODEL ///
 
-const User = model('User', userSchema);
-
+const User = model('user', userSchema);
 
 
 
