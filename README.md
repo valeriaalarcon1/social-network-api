@@ -31,4 +31,21 @@ This module challenge asks us to build an API for a social network web aplicatio
 ## Usage
 To use this API, you must follow these steps:
 1. Install any and all necessary packages and dependencies using the command ``npm i``
-2. Initialize the API by running the command ``npm run start``
+2. Initialize the API by running the command ``npm run start`` to start the server
+3. Open Insomnia, and using your port HTTP, use GET, POST, PUT, and DELETE to do use the following features:
+   - Get all users, get a single user, create a user, or delete a user
+   - Add a friend or remove a friend from users' friends lists
+   - Get all thoughts, get a single thought, create a thought, update a thought, or delete a thought from a user
+   - Add a reaction or remove a reaction from a thought
+
+
+
+
+
+## License
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://choosealicense.com/licenses/mit/)
+
+
+
+## Author
+[Valeria Alarcon](https://github.com/valeriaalarcon1)
